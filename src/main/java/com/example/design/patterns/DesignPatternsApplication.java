@@ -7,6 +7,7 @@ import com.example.design.patterns.Banco.Banco;
 import com.example.design.patterns.Banco.FabricaBanco;
 import com.example.design.patterns.Banco.FabricaItau;
 import com.example.design.patterns.Conta.Conta;
+import com.example.design.patterns.Conta.ContaBuilder;
 import com.example.design.patterns.Conta.FabricaBancoConta;
 
 @SpringBootApplication
@@ -35,6 +36,17 @@ public class DesignPatternsApplication {
         System.out.println("###########################");
         System.out.println("Exemplo Abstract Factory");
         System.out.println("Conta criada no Banco do Brasil: " + contaBancoBrasil.getTipo());
+        
+        
+        ContaBuilder conta = new ContaBuilder.Builder()
+                .tipo("Conta Poupança")
+                .saldo(1000.0)
+                .build();
+
+		System.out.println("###########################");
+		System.out.println("Exemplo Builder ");
+		System.out.println("Tipo de conta: " + conta.getTipo());
+		System.out.println("Saldo da conta: " + conta.getSaldo());
 	}
 
 }
