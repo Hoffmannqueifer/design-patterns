@@ -8,6 +8,8 @@ import com.example.design.patterns.Banco.FabricaBanco;
 import com.example.design.patterns.Banco.FabricaItau;
 import com.example.design.patterns.Conta.Conta;
 import com.example.design.patterns.Conta.ContaBuilder;
+import com.example.design.patterns.Conta.ContaExemploPrototype;
+import com.example.design.patterns.Conta.ContaPrototype;
 import com.example.design.patterns.Conta.FabricaBancoConta;
 
 @SpringBootApplication
@@ -47,6 +49,19 @@ public class DesignPatternsApplication {
 		System.out.println("Exemplo Builder ");
 		System.out.println("Tipo de conta: " + conta.getTipo());
 		System.out.println("Saldo da conta: " + conta.getSaldo());
+		
+		//Prototype
+        
+        ContaPrototype contaPrototype = new ContaExemploPrototype();
+        contaPrototype = ContaExemploPrototype.createConta("Conta Corrente", 2000.0);
+        
+        ContaPrototype novaConta = contaPrototype.clone();
+        
+        ContaExemploPrototype novaContaBancaria = (ContaExemploPrototype) novaConta;
+        System.out.println("###########################");
+        System.out.println("Exemplo Prototype ");
+        System.out.println("Tipo de conta: " + novaContaBancaria.getTipo());
+        System.out.println("Saldo da conta: " + novaContaBancaria.getSaldo());
 	}
 
 }
