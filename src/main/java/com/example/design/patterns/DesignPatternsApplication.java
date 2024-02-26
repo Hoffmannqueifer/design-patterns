@@ -10,6 +10,7 @@ import com.example.design.patterns.Conta.Conta;
 import com.example.design.patterns.Conta.ContaBuilder;
 import com.example.design.patterns.Conta.ContaExemploPrototype;
 import com.example.design.patterns.Conta.ContaPrototype;
+import com.example.design.patterns.Conta.ContaSingleton;
 import com.example.design.patterns.Conta.FabricaBancoConta;
 
 @SpringBootApplication
@@ -62,6 +63,25 @@ public class DesignPatternsApplication {
         System.out.println("Exemplo Prototype ");
         System.out.println("Tipo de conta: " + novaContaBancaria.getTipo());
         System.out.println("Saldo da conta: " + novaContaBancaria.getSaldo());
+        
+        
+        //Singleton
+        
+        ContaSingleton contaSingleton = ContaSingleton.getInstance();
+        
+        
+        System.out.println("###########################");
+        System.out.println("Exemplo Singleton ");
+        contaSingleton.setTipo("Conta Corrente e Conta Poupança");
+        contaSingleton.setSaldo(3000.0);
+        
+        
+        System.out.println("Tipo de conta: " + contaSingleton.getTipo());
+        System.out.println("Saldo da conta: " + contaSingleton.getSaldo());
+        
+        
+        ContaSingleton mesmaConta = ContaSingleton.getInstance();
+        System.out.println("Mesma instância? " + (contaSingleton == mesmaConta)); 
 	}
 
 }
